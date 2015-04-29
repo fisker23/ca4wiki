@@ -7,7 +7,8 @@ var wiki = mongoose.model('Wiki');
 
 
 router.get('/wiki/:title', function(req,res ){
-    dbFacade.findWiki(req.params.title,function(data){
+    dbFacade.getWiki(req.params.title,function(err,data){
+        console.log(data);
         res.send(data);
     })
 })
