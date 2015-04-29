@@ -12,4 +12,6 @@ router.get('/partials/:partialName', function(req, res) {
   res.render('partials/' + name);
 });
 
+
+
 module.exports = router;
