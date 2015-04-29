@@ -45,7 +45,7 @@ process.on('SIGINT', function() {
 
 
 //bob
-//our user schema
+//our DB schema
 var wikiSchema = mongoose.Schema({
         title: {type: String, index: true},
         url: {type: String},
