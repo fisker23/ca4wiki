@@ -44,6 +44,7 @@ function _getCategories(callback){
     })
 }
 
+
 function _getWikiWithCategory(category, callback){
 
     wiki.find({categories : category}, 'title abstract' ,  function (err, result) {
