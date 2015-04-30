@@ -24,6 +24,9 @@ describe("Testing DataBase Facade", function () {
             });
         });
     })
+    after(function(){
+        mongoose.connection.db.dropDatabase();
+    })
 
 
 
@@ -55,7 +58,7 @@ describe("Testing DataBase Facade", function () {
         it("Should return a list of wikis with given category", function(done){
             dbFacade.getWikiWithCategory("test1",function(err, data){
                 var array = (JSON.parse(data));
-                array.length.should.equal(155);
+                array.length.should.equal(1);
                 done();
             })})})
 
