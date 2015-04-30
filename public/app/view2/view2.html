@@ -13,6 +13,17 @@
   <div angular-links></div>
 </p>
 
-<div>
-    <input type="search"> <button type="submit">Search</button>
-</div>
+
+
+<form id="wikiSearch" class="search2" method="get" action="1234.html" />
+<input class="search2" id="txtSearch" type="text" name="search_bar" size="31" maxlength="255"
+value="" style="left: 396px; top: 153px; width: 293px; height: 26px;" />
+<input class="search1" type="submit" name="submition" value="Search" style=" padding-bottom:20px; left: 691px; top: 153px; height: 23px" />
+<input class="search2" type="hidden" name="sitesearch" value="default.html" />
+
+<script type="text/javascript">
+    document.getElementById('wikiSearch').onsubmit = function() {
+        window.location = 'http://localhost:3000/api/wiki/' + document.getElementById('txtSearch').value;
+        return false;
+    }
+</script>
