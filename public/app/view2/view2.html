@@ -1,30 +1,16 @@
-<p>This is the partial for view 2.</p>
-<p style="color: darkgreen">Partial (view2.html) is located in the folder for this view (app/view2)</p>
-<br/>
-<p style="color: #105cb6">
 
-  Showing of 'checkmark" filter:
-  True: {{true | checkmark}}, False {{false | checkmark}}
-  <br/>
-  <p>{{infoFactory}}</p>
-  <p>{{infoService}}</p>
-  <br/>
-  The links below are inserted via a custom directive:
-  <div angular-links></div>
-
-
-
-
-<form id="wikiSearch" class="search2" method="get" action="1234.html" />
-<input class="search2" id="txtSearch" type="text" name="search_bar" size="31" maxlength="255"
+<input class="search2" id="txtSearch" type="text" name="search_bar" size="31" maxlength="255" ng-model="searchValue"
 value="" style="left: 396px; top: 153px; width: 293px; height: 26px;" />
-<input class="search1" type="submit" name="submition" value="Search" style=" padding-bottom:20px; left: 691px; top: 153px; height: 23px" />
-<input class="search2" type="hidden" name="sitesearch" value="default.html" />
+<button ng-click="getWiki(searchValue)" class="search1" value="Search" style=" padding-bottom:20px; left: 691px; top: 153px; height: 23px" >Search</button>
 
-<p>Kage</p>
-<script type="text/javascript">
-    document.getElementById('wikiSearch').onsubmit = function() {
-        window.location = 'http://localhost:3000/api/wiki/' + document.getElementById('txtSearch').value;
-        return false;
-    }
-</script>
+<div>
+    <div ng-repeat="wiki in wikis">
+
+
+        <accordion close-others="oneAtATime">
+            <accordion-group popover="{{wiki.abstract}}" popover-trigger="mouseenter" popover-placement="bottom" heading="{{wiki.title}}" ng-repeat="wiki in wikis">
+            {{wiki.abstract}}
+            </accordion-group>
+        </accordion>
+    </div>
+</div>
