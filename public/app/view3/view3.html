@@ -1,7 +1,9 @@
-<p>This is the partial for view 3.</p>
-<p>Data is fetched from a REST service, connected to MongoDB </p>
+<button ng-click="findCategories(letter)" ng-repeat="letter in ['A', 'B']">
+   {{letter}}
+</button>
+
 <ul>
   <p style="color: red">{{error}}</p>
-  <li ng-repeat="user in users"> {{user.userName}} {{user.email}} </li>
+  <li>{{filteredCategories}}</li>
 </ul>
 </p>

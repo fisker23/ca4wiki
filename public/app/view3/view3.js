@@ -9,17 +9,30 @@ angular.module('myAppRename.view3', ['ngRoute'])
   });
 }])
 
+
+
 .controller('View3Ctrl', function ($scope, $http) {
     $http({
       method: 'GET',
-      url: 'api/user'
+      url: 'api/categories'
     }).
       success(function (data, status, headers, config) {
-        $scope.users = data;
+        $scope.categories = data;
       }).
       error(function (data, status, headers, config) {
         $scope.error = data;
       });
+        $scope.findCategories = function(letter){
+            console.log(letter);
+            $scope.filteredCategories = ['Abe', 'Boligmand', "Abrikosvand"].filter(function(item){
+                if(item.charAt(0) == letter){
+                   return true;
+                }
+                else{
+                    return false;
+                }
+            })
+        }
 });
 
 
