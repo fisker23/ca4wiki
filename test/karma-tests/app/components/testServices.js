@@ -1,6 +1,6 @@
 'use strict';
 
-describe('myAppRename.services', function () {
+describe('Service Test', function () {
 
   beforeEach(module('myAppRename.services'));
 

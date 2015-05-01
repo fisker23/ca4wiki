@@ -1,4 +1,4 @@
-describe('myAppRename.factories', function () {
+describe('Factory Test', function () {
 
   beforeEach(module('myAppRename.factories'));
 

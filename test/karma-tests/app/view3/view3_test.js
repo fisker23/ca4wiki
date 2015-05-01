@@ -1,30 +1,30 @@
 describe('myAppRename.view3 View3Ctrl', function() {
 
   var scope, httpBackendMock, ctrl;
-  var users = [
-    {userName : "Lars", email :"l@l.dk",pw: "test",created : new Date(2014,11,2)},
-    {userName : "Henrik", email :"h@h.dk",pw: "test",created : new Date(2014,11,2)},
-  ];
-  beforeEach(module('myAppRename.view3'));
+  var wikis = [{title : "TestTitle", url :"testurl.test.url",abstract: "this is a test object with a test abstract as a test", categories : ["test1", "test2", "test3"], headings: null, links: null},
+      {title : "AnotherTitle", url :"testurl.test.url",abstract: "this is a different test object with a different test abstract as a test", categories : ["test2", "test3"], headings: null, links: null},
+      {title : "LastT", url :"testurl.test.url",abstract: "this is the last test object with the last test abstract as a test", categories : ["test3"], headings: null, links: null}];
+
+    beforeEach(module('myAppRename.view3'));
 
   beforeEach(inject(function ($httpBackend, $rootScope, $controller) {
     httpBackendMock = $httpBackend;
-    httpBackendMock.expectGET('api/user').
-      respond(users);
+    httpBackendMock.expectGET('api/categories').
+      respond(wikis);
     scope = $rootScope.$new();
     ctrl = $controller('View3Ctrl', {$scope: scope});
   }));
 
-  it('Should fetch two names ', function () {
-    expect(scope.users).toBeUndefined();
+  it('Should fetch three wikis ', function () {
+    expect(scope.wikis).toBeUndefined();
     httpBackendMock.flush();
-    expect(scope.users.length).toEqual(2);
+    expect(scope.wikis.length).toEqual(3);
   });
 
-  it('Should fetch Lars and Henrik', function () {
-    expect(scope.users).toBeUndefined();
+  it('Should fetch three correct wikis', function () {
+    expect(scope.wikis).toBeUndefined();
     httpBackendMock.flush();
-    expect(JSON.stringify(scope.users)).toEqual(JSON.stringify(users));
+    expect(JSON.stringify(scope.wikis)).toEqual(JSON.stringify(wikis));
   });
 
 });
