@@ -4,9 +4,7 @@ value="" style="left: 396px; top: 153px; width: 293px; height: 26px;" />
 <button ng-click="getWiki(searchValue)" class="search1" value="Search" style=" padding-bottom:20px; left: 691px; top: 153px; height: 23px" >Search</button>
 
 <div>
-    <div ng-repeat="wiki in wikis">
-
-
+    <div>
         <accordion close-others="oneAtATime">
             <accordion-group popover="{{wiki.abstract}}" popover-trigger="mouseenter" popover-placement="bottom" heading="{{wiki.title}}" ng-repeat="wiki in wikis">
             {{wiki.abstract}}

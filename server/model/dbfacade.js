@@ -21,7 +21,7 @@ function _getWiki(title, callback){
 
 function _findWiki(searchString, callback){
 
-    wiki.find({$or:[{title : new RegExp(searchString, 'i')}, {abstract :  new RegExp(searchString, 'i')}]}, 'title abstract', function (err, result) {
+    wiki.find({$or:[{title : new RegExp(searchString, 'i')}]}, 'title abstract', function (err, result) {
         if(err){
             callback(err);
         }

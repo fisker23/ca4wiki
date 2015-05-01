@@ -24,8 +24,8 @@ angular.module('myAppRename.view3', ['ngRoute'])
       });
         $scope.findCategories = function(letter){
             console.log(letter);
-            $scope.filteredCategories = ['Abe', 'Boligmand', "Abrikosvand"].filter(function(item){
-                if(item.charAt(0) == letter){
+            $scope.filteredCategories = $scope.categories.filter(function(item){
+                if(item != null && item.charAt(0) == letter){
                    return true;
                 }
                 else{

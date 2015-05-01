@@ -1,9 +1,9 @@
-<button ng-click="findCategories(letter)" ng-repeat="letter in ['A', 'B']">
+<button ng-click="findCategories(letter)" ng-repeat="letter in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']">
    {{letter}}
 </button>
 
 <ul>
   <p style="color: red">{{error}}</p>
-  <li>{{filteredCategories}}</li>
+  <li ng-repeat="category in filteredCategories">{{category}}</li>
 </ul>
 </p>
